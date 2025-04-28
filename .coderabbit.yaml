@@ -1,0 +1,70 @@
+# .coderabbit.yaml - Configuration for Code Rabbit AI Code Reviews
+
+# Early Access Features (Optional)
+# Uncomment and set to true to enable specific beta features if available.
+# early_access:
+#   code_insights: true
+
+# Review Configuration
+review:
+  # Paths to ignore during review. Adjusted for 'node-learning' folder structure.
+  exclude:
+    - "node-learning/**/node_modules/**"
+    - "node-learning/**/dist/**"
+    - "node-learning/**/build/**"
+    - "node-learning/**/coverage/**"
+    - "node-learning/**/*.log"
+    - "node-learning/**/package-lock.json"
+    - "node-learning/**/yarn.lock"
+    # Optionally ignore specific test files or config files
+    # - "node-learning/**/*.test.js"
+    # - "node-learning/**/*.spec.js"
+    # - "node-learning/**/jest.config.js"
+    # - "node-learning/**/webpack.config.js"
+
+  # You can add 'include' if needed, but with the above specific excludes, it's usually not necessary.
+  # include:
+  #   - "node-learning/**/src/**/*.js"
+
+  # Disable review comments on specific paths (optional)
+  # disable_review_comments:
+  #   - "node-learning/**/legacy/**"
+
+  # Enable review comments on critical modules (optional)
+  # enable_review_comments:
+  #   - "node-learning/**/critical_module/**"
+
+# Pull Request Summarization
+summarization:
+  enabled: true
+
+  exclude:
+    - "node-learning/**/__tests__/**"
+    - "node-learning/**/*.md"
+    - "node-learning/**/docs/**"
+
+  # max_files_for_summary: 50
+  # type: overview
+
+# Custom Instructions & Prompts
+instructions:
+  # Custom review instructions for all files under 'node-learning'
+  "node-learning/**/*": |
+    Please review for:
+    - Readability and maintainability of Node.js code.
+    - Proper asynchronous error handling (async/await or Promises).
+    - Adherence to standard JavaScript/TypeScript and Node.js best practices.
+    - Detection of potential security vulnerabilities (e.g., injection risks, unsafe use of user inputs).
+    - Avoiding performance bottlenecks (e.g., blocking I/O, unoptimized loops).
+    - Clear and concise comments, especially around complex asynchronous flows or business logic.
+
+# Linter and Tool Integration
+# linters:
+#   eslint:
+#     enabled: true
+
+# Chat Settings (If applicable)
+# chat:
+#   enabled: true
+
+# Additional configurations can be added based on Code Rabbit's documentation
