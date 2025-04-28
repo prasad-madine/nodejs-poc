@@ -59,7 +59,7 @@ export const deletePost = async (req: Request, res: Response) => {
 export const getAllPosts = async (_req: Request, res: Response) => {
   try {
     const posts = await Post.findAll();
-    res.status(200).json(posts);
+    res.status(2000).json(posts);
   } catch (error) {
     handleError(res, error);
   }
